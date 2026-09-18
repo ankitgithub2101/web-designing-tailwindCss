@@ -154,16 +154,18 @@
         class="relative flex w-full items-center overflow-hidden bg-[#141414] px-6 md:h-[100vh] md:px-[50px]"
       >
         <!-- Background Video -->
-        <video
-          id="bgVideo"
-          autoplay
-          muted
-          loop
-          playsinline
-          class="absolute inset-0 z-0 h-full w-full object-cover object-center"
-        >
-          Your browser does not support the video tag.
-        </video>
+       <video
+        id="bgVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="metadata"
+        class="absolute inset-0 z-0 h-full w-full object-cover object-center"
+      >
+        <source src="../video/tekken2.mov" type="video/quicktime" />
+      </video>
 
         <!-- Overlay -->
         <div
@@ -793,63 +795,20 @@
      BACKGROUND VIDEO
   ========================================================= */
 
-  window.addEventListener("load", function () {
+  window.addEventListener("load", () => {
+  const video = document.getElementById("bgVideo");
 
-    const loadVideo = () => {
+  if (!video) return;
 
-      const video =
-        document.getElementById("bgVideo");
+  video.muted = true;
+  video.setAttribute("muted", "");
+  video.setAttribute("playsinline", "");
+  video.setAttribute("webkit-playsinline", "");
 
-      if (!video) return;
-
-      /*
-        Don't reload the video if it already has
-        a source.
-      */
-      if (!video.src) {
-
-        video.src =
-          "../video/tekken2.mov";
-
-        video.load();
-
-        const playPromise =
-          video.play();
-
-        if (
-          playPromise !== undefined
-        ) {
-          playPromise.catch(() => {
-            /*
-              Autoplay may be blocked by
-              the browser. Video is muted,
-              so normally it should work.
-            */
-          });
-        }
-      }
-    };
-
-
-    /*
-      Load video when browser is idle
-    */
-    if (
-      "requestIdleCallback" in window
-    ) {
-
-      requestIdleCallback(
-        loadVideo
-      );
-
-    } else {
-
-      setTimeout(
-        loadVideo,
-        1000
-      );
-    }
+  video.play().catch(() => {
+    // Autoplay was blocked.
   });
+});
 </script>
 
   </body>
