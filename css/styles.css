@@ -94,6 +94,34 @@ body {
   z-index: 2;
 }
 
+/* Error messages */
+.error {
+  color: rgb(25, 86, 199);
+  font-weight: 900;
+  font-size: 1em;
+  margin-bottom: 10px;
+  min-height: 0;
+}
+
+/* Prevent back side from showing */
+.flip-card {
+  transform-style: preserve-3d;
+  transition: transform 1s ease-in-out;
+}
+
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
 /* Mobile menu animation */
 @media (max-width: 960px) {
   .mobile-menu-open {

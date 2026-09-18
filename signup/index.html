@@ -31,63 +31,6 @@
       href="../public/favicon.png"
       sizes="192x192"
     />
-
-    <style>
-      body {
-        font-family: "Kumbh Sans", sans-serif;
-      }
-
-      /* Gradient logo/text */
-      .gradient-logo {
-        background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      /* Active navbar */
-      .actives {
-        border-top: 1px solid #4837ff;
-        border-bottom: 1px solid #f77062;
-        background: transparent;
-        border-radius: 50px;
-      }
-
-      /* Error messages */
-      .error {
-        color: rgb(25, 86, 199);
-        font-weight: 900;
-        font-size: 1em;
-        margin-bottom: 10px;
-        min-height: 0;
-      }
-
-      /* Prevent back side from showing */
-      .flip-card {
-        transform-style: preserve-3d;
-        transition: transform 1s ease-in-out;
-      }
-
-      .flip-card.flipped {
-        transform: rotateY(180deg);
-      }
-
-      .card-face {
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-      }
-
-      .card-back {
-        transform: rotateY(180deg);
-      }
-
-      /* Hide scrollbar on mobile */
-      @media screen and (max-width: 767px) {
-        ::-webkit-scrollbar {
-          width: 0;
-        }
-      }
-    </style>
   </head>
 
   <body class="m-0 min-h-screen overflow-x-hidden bg-[#141414] text-white">
@@ -570,111 +513,74 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script>
-      /* ================= MOBILE MENU ================= */
+      /* =========================================================
+     MOBILE MENU
+  ========================================================= */
 
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuLinks = document.getElementById("nav-act");
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector("#nav-act");
 
-      mobileMenu.addEventListener("click", () => {
-        mobileMenu.classList.toggle("is-active");
-        menuLinks.classList.toggle("active");
-
-        mobileMenu.setAttribute(
-          "aria-expanded",
-          mobileMenu.classList.contains("is-active"),
-        );
+      /*
+      Mobile menu
+    */
+      menu.addEventListener("click", function () {
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("mobile-menu-open");
       });
 
-      /* ================= ACTIVE NAV ================= */
-
+      /*
+      Active navigation link
+    */
       function setActiveLink() {
-        const currentLocation = window.location.pathname;
+        const links = document.querySelectorAll("#nav-act li");
 
-        document.querySelectorAll("#nav-act > li").forEach((item) => {
-          item.classList.remove("actives");
+        links.forEach((link) => {
+          link.classList.remove(
+            "border-t",
+            "border-b",
+            "border-[#4837ff]",
+            "border-b-[#f77062]",
+            "rounded-full",
+          );
 
-          const link = item.querySelector("a");
+          const anchor = link.querySelector("a");
 
-          if (!link) return;
+          if (!anchor) return;
 
-          const href = link.getAttribute("href");
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
 
-          if (href === currentLocation) {
-            item.classList.add("actives");
+          if (
+            href === currentLocation ||
+            (href === "index.html" && currentLocation === "/")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "index.html" && window.location.hash === "")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
           }
         });
       }
 
-      window.addEventListener("load", setActiveLink);
       window.addEventListener("hashchange", setActiveLink);
 
-      /* ================= FLIP CARD ================= */
-
-      function flip() {
-        document.getElementById("card").classList.toggle("flipped");
-      }
-
-      /* ================= SIGNUP VALIDATION ================= */
-
-      function validateFirstName() {
-        const value = document.forms["signUp"]["first_name"].value.trim();
-
-        document.getElementById("firstNameError").textContent =
-          value === "" ? "First name is required." : "";
-      }
-
-      function validateLastName() {
-        const value = document.forms["signUp"]["last_name"].value.trim();
-
-        document.getElementById("lastNameError").textContent =
-          value === "" ? "Last name is required." : "";
-      }
-
-      function validateUsername() {
-        const value = document.forms["signUp"]["username"].value.trim();
-
-        document.getElementById("usernameError").textContent =
-          value === "" ? "Username is required." : "";
-      }
-
-      function validateEmail() {
-        const value = document.forms["signUp"]["email"].value.trim();
-
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        document.getElementById("emailError").textContent = emailPattern.test(
-          value,
-        )
-          ? ""
-          : "Enter a valid email address.";
-      }
-
-      function validatePassword() {
-        const value = document.forms["signUp"]["password"].value;
-
-        document.getElementById("passwordError").textContent =
-          value.length >= 6 ? "" : "Password must be at least 6 characters.";
-      }
-
-      function validateForm() {
-        validateFirstName();
-        validateLastName();
-        validateUsername();
-        validateEmail();
-        validatePassword();
-
-        const errors = document.querySelectorAll("#signUp .error");
-
-        for (const error of errors) {
-          if (error.textContent !== "") {
-            return false;
-          }
-        }
-
-        alert("✅ Signup successful!");
-
-        return true;
-      }
+      window.addEventListener("load", setActiveLink);
 
       /* ================= LOGIN VALIDATION ================= */
 
