@@ -509,216 +509,75 @@
     </footer>
 
     <!-- ================= JAVASCRIPT ================= -->
-
-   ```html
 <script>
   /* =========================================================
      MOBILE MENU
   ========================================================= */
 
-  const mobileMenu = document.getElementById("mobile-menu");
-  const navMenu = document.getElementById("nav-act");
+ const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector("#nav-act");
 
-  if (mobileMenu && navMenu) {
-    const bars = mobileMenu.querySelectorAll(".bar");
-    const navLinks = navMenu.querySelectorAll("a");
-
-    let menuOpen = false;
-
-    function setMenuState(open) {
-      menuOpen = open;
-
-      if (open) {
-        /* Show mobile menu */
-        navMenu.classList.remove(
-          "top-[-1000px]",
-          "opacity-0",
-          "z-[-1]"
-        );
-
-        navMenu.classList.add(
-          "top-20",
-          "opacity-100",
-          "z-[999]"
-        );
-
-        /* Hamburger -> X */
-        if (bars.length >= 3) {
-          bars[0].classList.add(
-            "rotate-45",
-            "translate-y-[8px]"
-          );
-
-          bars[1].classList.add("opacity-0");
-
-          bars[2].classList.add(
-            "-rotate-45",
-            "-translate-y-[8px]"
-          );
-        }
-
-        mobileMenu.classList.add("is-active");
-
-        mobileMenu.setAttribute("aria-expanded", "true");
-        mobileMenu.setAttribute(
-          "aria-label",
-          "Close navigation"
-        );
-      } else {
-        /* Hide mobile menu */
-        navMenu.classList.remove(
-          "top-20",
-          "opacity-100",
-          "z-[999]"
-        );
-
-        navMenu.classList.add(
-          "top-[-1000px]",
-          "opacity-0",
-          "z-[-1]"
-        );
-
-        /* X -> Hamburger */
-        if (bars.length >= 3) {
-          bars[0].classList.remove(
-            "rotate-45",
-            "translate-y-[8px]"
-          );
-
-          bars[1].classList.remove("opacity-0");
-
-          bars[2].classList.remove(
-            "-rotate-45",
-            "-translate-y-[8px]"
-          );
-        }
-
-        mobileMenu.classList.remove("is-active");
-
-        mobileMenu.setAttribute("aria-expanded", "false");
-        mobileMenu.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
-      }
-    }
-
-    /* Toggle menu */
-    mobileMenu.addEventListener("click", function (event) {
-      event.stopPropagation();
-
-      setMenuState(!menuOpen);
-    });
-
-    /* Close menu when navigation link is clicked */
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        setMenuState(false);
+      /*
+      Mobile menu
+    */
+      menu.addEventListener("click", function () {
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("mobile-menu-open");
       });
-    });
-
-    /* Close menu when clicking outside */
-    document.addEventListener("click", function (event) {
-      if (
-        menuOpen &&
-        !mobileMenu.contains(event.target) &&
-        !navMenu.contains(event.target)
-      ) {
-        setMenuState(false);
-      }
-    });
-
-    /* Close menu with Escape */
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && menuOpen) {
-        setMenuState(false);
-        mobileMenu.focus();
-      }
-    });
-
-    /* Reset menu when switching to desktop */
-    window.addEventListener("resize", function () {
-      if (window.innerWidth > 960 && menuOpen) {
-        setMenuState(false);
-      }
-    });
-  }
-
-
-  /* =========================================================
-     ACTIVE NAVIGATION
-  ========================================================= */
-
-  function setActiveLink() {
-    const links = document.querySelectorAll("#nav-act > li");
-
-    const currentLocation = window.location.pathname;
-    const currentHash = window.location.hash;
-
-    links.forEach((item) => {
-      const link = item.querySelector("a");
-
-      if (!link) return;
-
-      const href = link.getAttribute("href");
-
-      /* Remove old active styles */
-      item.classList.remove(
-        "actives",
-        "border-t",
-        "border-b",
-        "border-[#4837ff]",
-        "border-b-[#f77062]",
-        "rounded-full"
-      );
 
       /*
-        Check current page
-      */
-      const isCurrentPage =
-        href === currentLocation ||
-        (
-          href === "/web-designing-tailwindCss/" &&
-          (
-            currentLocation === "/" ||
-            currentLocation === "/web-designing-tailwindCss"
-          )
-        );
+      Active navigation link
+    */
+      function setActiveLink() {
+        const links = document.querySelectorAll("#nav-act li");
 
-      /*
-        Check hash
-      */
-      const isCurrentHash =
-        currentHash && currentHash === href;
+        links.forEach((link) => {
+          link.classList.remove(
+            "border-t",
+            "border-b",
+            "border-[#4837ff]",
+            "border-b-[#f77062]",
+            "rounded-full",
+          );
 
-      if (isCurrentPage || isCurrentHash) {
-        item.classList.add(
-          "actives",
-          "border-t",
-          "border-b",
-          "border-[#4837ff]",
-          "border-b-[#f77062]",
-          "rounded-full"
-        );
+          const anchor = link.querySelector("a");
+
+          if (!anchor) return;
+
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
+
+          if (
+            href === currentLocation ||
+            (href === "index.html" && currentLocation === "/")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "index.html" && window.location.hash === "")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+        });
       }
-    });
-  }
 
-  /* Run active navigation on page load */
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      setActiveLink
-    );
-  } else {
-    setActiveLink();
-  }
+      window.addEventListener("hashchange", setActiveLink);
 
-  /* Update when hash changes */
-  window.addEventListener(
-    "hashchange",
-    setActiveLink
-  );
+      window.addEventListener("load", setActiveLink);
 
 
   /* =========================================================
