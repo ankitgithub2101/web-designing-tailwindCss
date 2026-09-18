@@ -436,40 +436,6 @@
 
     <!-- ================= JAVASCRIPT ================= -->
     <script>
-      function setActiveLink() {
-        const links = document.querySelectorAll(".navbar__item, .navbar__btn");
-
-        links.forEach((link) => {
-          link.classList.remove("actives");
-
-          const anchor = link.querySelector("a");
-
-          if (!anchor) return;
-
-          const href = anchor.getAttribute("href");
-          const currentLocation = window.location.pathname;
-
-          if (
-            href === currentLocation ||
-            (href === "./about.html" && currentLocation === "/")
-          ) {
-            link.classList.add("actives");
-          }
-
-          if (
-            window.location.hash === href ||
-            (href === "./about.html" && window.location.hash === "")
-          ) {
-            link.classList.add("actives");
-          }
-        });
-      }
-
-      window.addEventListener("hashchange", setActiveLink);
-
-      window.addEventListener("load", setActiveLink);
-
-      // Mobile menu
       const menu = document.querySelector("#mobile-menu");
       const menuLinks = document.querySelector("#nav-act");
 
@@ -480,6 +446,60 @@
         menu.classList.toggle("is-active");
         menuLinks.classList.toggle("mobile-menu-open");
       });
+
+      /*
+      Active navigation link
+    */
+      function setActiveLink() {
+        const links = document.querySelectorAll("#nav-act li");
+
+        links.forEach((link) => {
+          link.classList.remove(
+            "border-t",
+            "border-b",
+            "border-[#4837ff]",
+            "border-b-[#f77062]",
+            "rounded-full",
+          );
+
+          const anchor = link.querySelector("a");
+
+          if (!anchor) return;
+
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
+
+          if (
+            href === currentLocation ||
+            (href === "index.html" && currentLocation === "/")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "index.html" && window.location.hash === "")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+        });
+      }
+
+      window.addEventListener("hashchange", setActiveLink);
+
+      window.addEventListener("load", setActiveLink);
     </script>
   </body>
 </html>
