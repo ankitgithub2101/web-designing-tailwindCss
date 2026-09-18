@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Signup</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+
+    <link rel="apple-touch-icon" href="../public/favicon.png" sizes="180x180" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="../public/favicon.png"
+      sizes="192x192"
+    />
+
+    <style>
+      body {
+        font-family: "Kumbh Sans", sans-serif;
+      }
+
+      /* Gradient logo/text */
+      .gradient-logo {
+        background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Active navbar */
+      .actives {
+        border-top: 1px solid #4837ff;
+        border-bottom: 1px solid #f77062;
+        background: transparent;
+        border-radius: 50px;
+      }
+
+      /* Error messages */
+      .error {
+        color: rgb(25, 86, 199);
+        font-weight: 900;
+        font-size: 1em;
+        margin-bottom: 10px;
+        min-height: 0;
+      }
+
+      /* Prevent back side from showing */
+      .flip-card {
+        transform-style: preserve-3d;
+        transition: transform 1s ease-in-out;
+      }
+
+      .flip-card.flipped {
+        transform: rotateY(180deg);
+      }
+
+      .card-face {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      .card-back {
+        transform: rotateY(180deg);
+      }
+
+      /* Hide scrollbar on mobile */
+      @media screen and (max-width: 767px) {
+        ::-webkit-scrollbar {
+          width: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="m-0 min-h-screen overflow-x-hidden bg-[#141414] text-white">
+    <!-- ================= NAVBAR ================= -->
+
+    <nav
+      class="sticky top-0 z-[999999] flex h-20 items-center justify-center bg-[#111111] shadow-[10px_10px_10px_#000]"
+    >
+      <div
+        class="relative flex h-20 w-full max-w-[1300px] items-center justify-between px-[50px] max-[960px]:px-0"
+      >
+        <!-- Logo -->
+        <a
+          href="/web-designing/signup/"
+          id="navbar__logo"
+          class="gradient-logo flex cursor-pointer items-center text-[2rem] no-underline max-[960px]:pl-[25px]"
+        >
+          <i class="fab fa-google">E</i>
+        </a>
+
+        <!-- Mobile Menu -->
+        <button
+          id="mobile-menu"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          class="absolute right-[5%] top-[20%] hidden translate-x-[5%] translate-y-[20%] cursor-pointer flex-col border-0 bg-transparent p-0 max-[960px]:flex"
+        >
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+        </button>
+
+        <!-- Navigation -->
+        <ul
+          id="nav-act"
+          class="m-0 flex list-none items-center p-0 text-center max-[960px]:absolute max-[960px]:left-0 max-[960px]:top-[-1000px] max-[960px]:z-[-1] max-[960px]:grid max-[960px]:h-auto max-[960px]:w-full max-[960px]:bg-[#131313] max-[960px]:opacity-0 max-[960px]:transition-all max-[960px]:duration-500"
+        >
+          <!-- Home -->
+          <li
+            id="home-link"
+            class="flex items-center max-[960px]:mx-auto max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/"
+              class="flex h-[50%] items-center justify-center px-[15px] py-[10px] text-[1.4rem] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Home
+            </a>
+          </li>
+
+          <!-- About -->
+          <li
+            id="about-link"
+            class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/about/"
+              class="flex h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-[1.4rem] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
+            >
+              About
+            </a>
+          </li>
+
+          <!-- Tech -->
+          <li
+            id="tech-link"
+            class="flex items-center max-[960px]:mx-auto max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/tech/"
+              class="flex h-[50%] items-center justify-center px-[15px] py-[10px] text-[1.4rem] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Tech
+            </a>
+          </li>
+
+          <!-- Contact -->
+          <li
+            id="contact-link"
+            class="flex items-center max-[960px]:mx-auto max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/contact/"
+              class="flex h-[50%] items-center justify-center px-[15px] py-[10px] text-[1.4rem] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Contact
+            </a>
+          </li>
+
+          <!-- Signup -->
+          <li
+            id="signup-link"
+            class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/signup/"
+              class="flex h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-[1.4rem] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
+            >
+              SignUp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ================= SIGNUP SECTION ================= -->
+
+    <main
+      class="min-h-[calc(100vh-80px)] bg-cover bg-center bg-no-repeat px-4 pb-32"
+      style="
+        background-image:
+          linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.856),
+            rgba(11, 1, 1, 0.796)
+          ),
+          url(&quot;../images/warrior.jpg&quot;);
+      "
+    >
+      <section class="mx-auto w-full max-w-[1300px] pt-8">
+        <!-- Flip Card -->
+        <div
+          id="card"
+          class="flip-card relative mx-auto h-[650px] w-full max-w-[380px]"
+        >
+          <!-- ================= LOGIN ================= -->
+
+          <div
+            class="card-face absolute left-0 top-0 h-full w-full rounded-[10px] text-center"
+          >
+            <p
+              class="mx-auto mt-8 w-[60px] border-b-2 border-[#ff8177] pb-1 font-bold text-[#ff8177]"
+            >
+              LOG IN
+            </p>
+
+            <!-- Login Image -->
+            <img
+              src="../images/download.jpg"
+              alt="Login"
+              class="mx-auto mt-5 mb-8 h-[200px] w-[240px] rounded-[50px] object-cover opacity-60"
+              style="clip-path: circle(38% at 50% 49%)"
+            />
+
+            <form
+              method="post"
+              action=""
+              id="loginForm"
+              class="flex flex-col items-center"
+            >
+              <!-- Username -->
+              <div
+                class="error w-full max-w-[300px] text-center"
+                id="loginUsernameError"
+              ></div>
+
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validateLoginUsername()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <!-- Password -->
+              <div
+                class="error mt-2 w-full max-w-[300px] text-left"
+                id="loginPasswordError"
+              ></div>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validateLoginPassword()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <button
+                type="submit"
+                name="login"
+                value="clicked"
+                onclick="return validateLoginForm();"
+                class="mt-7 rounded-[4px] border-0 bg-[#ff8177] px-[60px] py-3 text-white transition duration-300 hover:bg-[#4837ff]"
+              >
+                Log in
+              </button>
+
+              <span
+                onclick="flip()"
+                class="mt-8 cursor-pointer text-[#ff8177] hover:text-[#ffb199]"
+              >
+                Create an account
+              </span>
+            </form>
+          </div>
+
+          <!-- ================= SIGN UP ================= -->
+
+          <div
+            class="card-face card-back absolute left-0 top-0 h-full w-full rounded-[10px] text-center"
+          >
+            <p
+              class="mx-auto mt-12 w-[70px] border-b-2 border-[#ff8177] pb-1 font-bold text-[#ff8177]"
+            >
+              SIGN UP
+            </p>
+
+            <form
+              method="post"
+              action=""
+              id="signUp"
+              class="mt-5 flex flex-col items-center"
+            >
+              <!-- First Name -->
+              <div
+                class="error w-full max-w-[300px] text-center"
+                id="firstNameError"
+              ></div>
+
+              <input
+                type="text"
+                name="first_name"
+                placeholder="First name"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validateFirstName()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <!-- Last Name -->
+              <div
+                class="error mt-1 w-full max-w-[300px] text-center"
+                id="lastNameError"
+              ></div>
+
+              <input
+                type="text"
+                name="last_name"
+                placeholder="Last name"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validateLastName()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <!-- Username -->
+              <div
+                class="error mt-1 w-full max-w-[300px] text-center"
+                id="usernameError"
+              ></div>
+
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validateUsername()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <!-- Email -->
+              <div
+                class="error mt-1 w-full max-w-[300px] text-center"
+                id="emailError"
+              ></div>
+
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                maxlength="30"
+                autocomplete="off"
+                onkeyup="validateEmail()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <!-- Password -->
+              <div
+                class="error mt-1 w-full max-w-[300px] text-center"
+                id="passwordError"
+              ></div>
+
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                maxlength="10"
+                autocomplete="off"
+                onkeyup="validatePassword()"
+                class="w-[280px] rounded-[4px] border-0 bg-[#f0f5f9] px-[25px] py-[13px] text-center text-[15px] text-black outline-none max-[480px]:w-[260px]"
+              />
+
+              <button
+                type="submit"
+                name="signup"
+                value="clicked"
+                onclick="return validateForm();"
+                class="mt-6 rounded-[4px] border-0 bg-[#ff8177] px-[60px] py-3 text-white transition duration-300 hover:bg-[#4837ff]"
+              >
+                Sign up
+              </button>
+
+              <span
+                onclick="flip()"
+                class="mt-6 cursor-pointer text-[#ff8177] hover:text-[#ffb199]"
+              >
+                Log in
+              </span>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer
+      class="flex flex-col items-center justify-center bg-[#141414] px-0 pb-4 pt-20"
+    >
+      <div class="w-full max-w-[1000px]">
+        <!-- Footer Links -->
+        <div
+          class="grid grid-cols-4 border-y border-gray-600 max-[820px]:grid-cols-4 max-[820px]:gap-4 max-[480px]:grid-cols-2"
+        >
+          <!-- About -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">About Us</h2>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              How it works
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Career
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Our Team
+            </a>
+          </div>
+
+          <!-- Contact -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Contact Us</h2>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Contact
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Support
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Terms of services
+            </a>
+          </div>
+
+          <!-- Videos -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Videos</h2>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Submit
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Agency
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Influencer
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Social Media</h2>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div
+          class="mx-auto mt-10 flex w-[90%] max-w-[767px] items-center justify-between max-[820px]:flex-col max-[820px]:gap-8"
+        >
+          <!-- Logo -->
+          <a
+            href="#"
+            id="footer__logo"
+            class="flex items-center text-[2rem] text-white no-underline"
+          >
+            <i class="fab fa-google">
+              <i class="fab fa-etsy"></i>
+            </i>
+          </a>
+
+          <!-- Copyright -->
+          <p class="text-white max-[820px]:mb-8">
+            &copy; 2026. All rights reserved
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex w-[240px] items-center justify-evenly">
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+      /* ================= MOBILE MENU ================= */
+
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuLinks = document.getElementById("nav-act");
+
+      mobileMenu.addEventListener("click", () => {
+        mobileMenu.classList.toggle("is-active");
+        menuLinks.classList.toggle("active");
+
+        mobileMenu.setAttribute(
+          "aria-expanded",
+          mobileMenu.classList.contains("is-active"),
+        );
+      });
+
+      /* ================= ACTIVE NAV ================= */
+
+      function setActiveLink() {
+        const currentLocation = window.location.pathname;
+
+        document.querySelectorAll("#nav-act > li").forEach((item) => {
+          item.classList.remove("actives");
+
+          const link = item.querySelector("a");
+
+          if (!link) return;
+
+          const href = link.getAttribute("href");
+
+          if (href === currentLocation) {
+            item.classList.add("actives");
+          }
+        });
+      }
+
+      window.addEventListener("load", setActiveLink);
+      window.addEventListener("hashchange", setActiveLink);
+
+      /* ================= FLIP CARD ================= */
+
+      function flip() {
+        document.getElementById("card").classList.toggle("flipped");
+      }
+
+      /* ================= SIGNUP VALIDATION ================= */
+
+      function validateFirstName() {
+        const value = document.forms["signUp"]["first_name"].value.trim();
+
+        document.getElementById("firstNameError").textContent =
+          value === "" ? "First name is required." : "";
+      }
+
+      function validateLastName() {
+        const value = document.forms["signUp"]["last_name"].value.trim();
+
+        document.getElementById("lastNameError").textContent =
+          value === "" ? "Last name is required." : "";
+      }
+
+      function validateUsername() {
+        const value = document.forms["signUp"]["username"].value.trim();
+
+        document.getElementById("usernameError").textContent =
+          value === "" ? "Username is required." : "";
+      }
+
+      function validateEmail() {
+        const value = document.forms["signUp"]["email"].value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        document.getElementById("emailError").textContent = emailPattern.test(
+          value,
+        )
+          ? ""
+          : "Enter a valid email address.";
+      }
+
+      function validatePassword() {
+        const value = document.forms["signUp"]["password"].value;
+
+        document.getElementById("passwordError").textContent =
+          value.length >= 6 ? "" : "Password must be at least 6 characters.";
+      }
+
+      function validateForm() {
+        validateFirstName();
+        validateLastName();
+        validateUsername();
+        validateEmail();
+        validatePassword();
+
+        const errors = document.querySelectorAll("#signUp .error");
+
+        for (const error of errors) {
+          if (error.textContent !== "") {
+            return false;
+          }
+        }
+
+        alert("✅ Signup successful!");
+
+        return true;
+      }
+
+      /* ================= LOGIN VALIDATION ================= */
+
+      function validateLoginUsername() {
+        const value = document.forms["loginForm"]["username"].value.trim();
+
+        document.getElementById("loginUsernameError").textContent =
+          value === "" ? "Username is required." : "";
+      }
+
+      function validateLoginPassword() {
+        const value = document.forms["loginForm"]["password"].value;
+
+        document.getElementById("loginPasswordError").textContent =
+          value.length >= 6 ? "" : "Password must be at least 6 characters.";
+      }
+
+      function validateLoginForm() {
+        validateLoginUsername();
+        validateLoginPassword();
+
+        const errors = document.querySelectorAll("#loginForm .error");
+
+        for (const error of errors) {
+          if (error.textContent !== "") {
+            return false;
+          }
+        }
+
+        alert("✅ Login successful!");
+
+        return true;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+
+    <link rel="apple-touch-icon" href="../public/favicon.png" sizes="180x180" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="../public/favicon.png"
+      sizes="192x192"
+    />
+  </head>
+
+  <body class="m-0 bg-[#141414] text-white overflow-x-hidden">
+    <!-- ================= NAVBAR ================= -->
+    <nav
+      class="sticky top-0 z-[9999] flex h-20 items-center justify-center bg-[#111111] shadow-[10px_10px_10px_#000]"
+    >
+      <div
+        class="flex h-20 w-full max-w-[1300px] items-center justify-between px-6 md:px-[50px]"
+      >
+        <!-- Logo -->
+        <a
+          href="/web-designing/"
+          id="navbar__logo"
+          class="flex cursor-pointer items-center bg-gradient-to-t from-[#ff0844] to-[#ffb199] bg-clip-text text-[2rem] text-transparent"
+        >
+          <i class="fab fa-google">E</i>
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu"
+          type="button"
+          aria-label="Toggle navigation"
+          class="flex cursor-pointer flex-col md:hidden"
+        >
+          <span
+            class="bar my-[5px] h-[3px] w-[25px] bg-white transition-all"
+          ></span>
+          <span
+            class="bar my-[5px] h-[3px] w-[25px] bg-white transition-all"
+          ></span>
+          <span
+            class="bar my-[5px] h-[3px] w-[25px] bg-white transition-all"
+          ></span>
+        </button>
+
+        <!-- Navigation -->
+        <ul
+          id="nav-act"
+          class="absolute left-0 top-full hidden w-full flex-col items-center bg-[#131313] pb-5 text-center md:static md:flex md:w-auto md:flex-row md:bg-transparent md:p-0"
+        >
+          <li id="home-link" class="navbar__item">
+            <a
+              href="/web-designing/"
+              class="navbar__links text-[1.4rem] flex items-center justify-center px-[15px] py-[10px] text-white no-underline transition duration-300 hover:text-[#f77062]"
+            >
+              Home
+            </a>
+          </li>
+
+          <li id="about-link" class="navbar__btn">
+            <a
+              href="/web-designing/about/"
+              class="navbar__links text-[1.4rem] button flex items-center justify-center rounded-[4px] px-[15px] py-[10px] text-white no-underline transition duration-300 hover:text-[#f77062]"
+            >
+              About
+            </a>
+          </li>
+
+          <li id="tech-link" class="navbar__item">
+            <a
+              href="/web-designing/tech/"
+              class="navbar__links text-[1.4rem] flex items-center justify-center px-[15px] py-[10px] text-white no-underline transition duration-300 hover:text-[#f77062]"
+            >
+              Tech
+            </a>
+          </li>
+
+          <li id="contact-link" class="navbar__item">
+            <a
+              href="/web-designing/contact/"
+              class="navbar__links flex text-[1.4rem] items-center justify-center px-[15px] py-[10px] text-white no-underline transition duration-300 hover:text-[#f77062]"
+            >
+              Contact
+            </a>
+          </li>
+
+          <li id="signup-link" class="navbar__btn">
+            <a
+              href="/web-designing/signup/"
+              class="navbar__links text-[1.4rem] button flex items-center justify-center rounded-[4px] px-[15px] py-[10px] text-white no-underline transition duration-300 hover:text-[#f77062]"
+            >
+              SignUp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ================= MAIN ================= -->
+    <main class="bg-[#141414]">
+      <!-- ABOUT TITLE -->
+      <section
+        class="about-wrapper mx-auto grid min-h-[50vh] max-w-[1300px] place-content-center bg-[#141414] text-[clamp(1.5rem,1rem+11vw,15rem)] font-bold uppercase leading-none"
+      >
+        <div class="col-start-1 row-start-1">
+          <div class="about-top">About Us ?</div>
+        </div>
+
+        <div aria-hidden="true" class="col-start-1 row-start-1">
+          <div class="about-bottom">About Us ?</div>
+        </div>
+      </section>
+
+      <!-- ================= GIF / VIDEO ================= -->
+      <div class="flex justify-center">
+        <img
+          src="../video/tekkn2.gif"
+          alt="Gaming animation"
+          class="gaming-image h-[350px] w-[700px] object-cover"
+        />
+      </div>
+
+      <!-- ================= LEADERBOARD ================= -->
+      <section class="mx-auto mt-12 w-full max-w-[1140px] px-4">
+        <h2 class="mb-6 text-center text-2xl font-bold text-white">
+          Leaderboard
+        </h2>
+
+        <div class="overflow-x-auto">
+          <table
+            class="w-full min-w-[600px] overflow-hidden rounded-lg bg-[#212529] text-left text-sm text-gray-300"
+          >
+            <thead class="bg-[#343a40] uppercase text-gray-200">
+              <tr>
+                <th scope="col" class="px-6 py-4">Sr</th>
+
+                <th scope="col" class="px-6 py-4">Name</th>
+
+                <th scope="col" class="px-6 py-4">Console</th>
+
+                <th scope="col" class="px-6 py-4">City</th>
+
+                <th scope="col" class="px-6 py-4">Score</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr class="border-b border-gray-700 bg-[#212529]">
+                <th
+                  scope="row"
+                  class="whitespace-nowrap px-6 py-4 font-bold text-white"
+                >
+                  1
+                </th>
+
+                <td class="px-6 py-4">Alice Johnson</td>
+
+                <td class="px-6 py-4">X Box Player</td>
+
+                <td class="px-6 py-4">New York</td>
+
+                <td class="px-6 py-4 font-bold text-[#ff8177]">980</td>
+              </tr>
+
+              <tr class="border-b border-gray-700 bg-[#292d32]">
+                <th
+                  scope="row"
+                  class="whitespace-nowrap px-6 py-4 font-bold text-white"
+                >
+                  2
+                </th>
+
+                <td class="px-6 py-4">Bob Smith</td>
+
+                <td class="px-6 py-4">Ps-5</td>
+
+                <td class="px-6 py-4">San Francisco</td>
+
+                <td class="px-6 py-4 font-bold text-[#ff8177]">920</td>
+              </tr>
+
+              <tr class="border-b border-gray-700 bg-[#212529]">
+                <th
+                  scope="row"
+                  class="whitespace-nowrap px-6 py-4 font-bold text-white"
+                >
+                  3
+                </th>
+
+                <td class="px-6 py-4">Carol Lee</td>
+
+                <td class="px-6 py-4">PS-3</td>
+
+                <td class="px-6 py-4">Chicago</td>
+
+                <td class="px-6 py-4 font-bold text-[#ff8177]">900</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ================= SERVICES TITLE ================= -->
+      <h1
+        class="mx-auto my-[0.9rem] max-w-[1300px] bg-gradient-to-r from-[#ff8177] via-[#f99185] to-[#b12a5b] bg-clip-text px-4 text-center text-2xl font-bold text-transparent md:text-3xl"
+      >
+        See what the hype is about
+      </h1>
+
+      <!-- ================= SERVICES ================= -->
+      <section
+        class="mx-auto flex min-h-screen max-w-[1300px] flex-col items-center bg-[#141414] bg-[linear-gradient(to_bottom,rgba(0,0,0,0.685),rgba(44,43,43,0.685)),url('../images/x-game.jpg')] bg-cover bg-bottom bg-no-repeat px-4 py-10 md:bg-fixed"
+      >
+        <!--
+          grid-cols-2 =
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        -->
+        <div
+          class="grid w-full grid-cols-1 justify-items-center gap-6 md:grid-cols-2"
+        >
+          <!-- CARD 1 -->
+          <div
+            class="service-card relative h-[26rem] w-full max-w-[26rem] overflow-hidden rounded bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(17,17,17,0.6)),url('../images/p1.png')] bg-cover bg-center text-white"
+          >
+            <h2 class="absolute left-[1.875rem] top-[15rem] text-xl font-bold">
+              Experience Bliss
+            </h2>
+
+            <p class="absolute left-8 top-[18rem]">
+              High Performance Gaming Zone
+            </p>
+
+            <a
+              href="/web-designing/tech/"
+              class="service-button absolute left-[1.8rem] top-[20.9rem] rounded bg-[#f77062] px-5 py-2.5 text-base text-white no-underline"
+            >
+              Start your own Game
+            </a>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="service-card relative h-[26rem] w-full max-w-[26rem] overflow-hidden rounded bg-[linear-gradient(to_bottom,rgba(0,0,0,0),rgba(17,17,17,0.6)),url('../images/p2.png')] bg-cover bg-center text-white"
+          >
+            <h2 class="absolute left-[1.875rem] top-[15rem] text-xl font-bold">
+              Are you dare to?
+            </h2>
+
+            <p class="absolute left-8 top-[18rem]">Knock Out!!!</p>
+
+            <a
+              href="/web-designing/tech/"
+              class="service-button absolute left-[1.8rem] top-[20.9rem] rounded bg-[#f77062] px-5 py-2.5 text-base text-white no-underline"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer
+      class="flex flex-col items-center justify-center bg-[#141414] px-0 pb-4 pt-20"
+    >
+      <div class="w-full max-w-[1000px]">
+        <!-- Footer Links -->
+        <div
+          class="grid grid-cols-4 border-y border-gray-600 max-[820px]:grid-cols-4 max-[820px]:gap-4 max-[480px]:grid-cols-2"
+        >
+          <!-- About -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">About Us</h2>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              How it works
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Career
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Our Team
+            </a>
+          </div>
+
+          <!-- Contact -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Contact Us</h2>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Contact
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Support
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Terms of services
+            </a>
+          </div>
+
+          <!-- Videos -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Videos</h2>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Submit
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Agency
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Influencer
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Social Media</h2>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div
+          class="mx-auto mt-10 flex w-[90%] max-w-[767px] items-center justify-between max-[820px]:flex-col max-[820px]:gap-8"
+        >
+          <!-- Logo -->
+          <a
+            href="#"
+            id="footer__logo"
+            class="flex items-center text-[2rem] text-white no-underline"
+          >
+            <i class="fab fa-google">
+              <i class="fab fa-etsy"></i>
+            </i>
+          </a>
+
+          <!-- Copyright -->
+          <p class="text-white max-[820px]:mb-8">
+            &copy; 2026. All rights reserved
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex w-[240px] items-center justify-evenly">
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+      function setActiveLink() {
+        const links = document.querySelectorAll(".navbar__item, .navbar__btn");
+
+        links.forEach((link) => {
+          link.classList.remove("actives");
+
+          const anchor = link.querySelector("a");
+
+          if (!anchor) return;
+
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
+
+          if (
+            href === currentLocation ||
+            (href === "./about.html" && currentLocation === "/")
+          ) {
+            link.classList.add("actives");
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "./about.html" && window.location.hash === "")
+          ) {
+            link.classList.add("actives");
+          }
+        });
+      }
+
+      window.addEventListener("hashchange", setActiveLink);
+
+      window.addEventListener("load", setActiveLink);
+
+      // Mobile menu
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector("#nav-act");
+
+      menu.addEventListener("click", function () {
+        menuLinks.classList.toggle("hidden");
+        menuLinks.classList.toggle("flex");
+
+        menu.classList.toggle("is-active");
+
+        const bars = menu.querySelectorAll(".bar");
+
+        if (menu.classList.contains("is-active")) {
+          bars[0].classList.add("translate-y-[8px]", "rotate-45");
+
+          bars[1].classList.add("opacity-0");
+
+          bars[2].classList.add("-translate-y-[8px]", "-rotate-45");
+        } else {
+          bars[0].classList.remove("translate-y-[8px]", "rotate-45");
+
+          bars[1].classList.remove("opacity-0");
+
+          bars[2].classList.remove("-translate-y-[8px]", "-rotate-45");
+        }
+      });
+    </script>
+  </body>
+</html>

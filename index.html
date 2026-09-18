@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Game Era</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Kumbh Sans -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/about.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+
+    <link rel="apple-touch-icon" href="./public/favicon.png" sizes="180x180" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="./public/favicon.png"
+      sizes="192x192"
+    />
+  </head>
+
+  <body class="bg-[#141414]">
+    <!-- ================= NAVBAR ================= -->
+
+    <nav
+      class="sticky top-0 z-[999999] flex h-20 items-center justify-center bg-[#111111] shadow-[10px_10px_10px_#000]"
+    >
+      <div
+        class="relative flex h-20 w-full max-w-[1300px] items-center justify-between px-[50px] max-[960px]:px-0"
+      >
+        <!-- Logo -->
+        <a
+          href="/web-designing/"
+          id="navbar__logo"
+          class="gradient-logo flex cursor-pointer items-center text-[2rem] no-underline max-[960px]:pl-[25px]"
+        >
+          <i class="fab fa-google">E</i>
+        </a>
+
+        <!-- Mobile Menu -->
+        <button
+          id="mobile-menu"
+          type="button"
+          aria-label="Open navigation"
+          class="absolute right-[5%] top-[20%] hidden translate-x-[5%] translate-y-[20%] flex-col cursor-pointer border-0 bg-transparent p-0 max-[960px]:flex"
+        >
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+
+          <span
+            class="bar my-[5px] block h-[3px] w-[25px] bg-white transition-all duration-300"
+          ></span>
+        </button>
+
+        <!-- Navigation -->
+        <ul
+          id="nav-act"
+          class="m-0 flex list-none items-center gap-0 p-0 text-center max-[960px]:absolute max-[960px]:left-0 max-[960px]:top-[-1000px] max-[960px]:z-[-1] max-[960px]:grid max-[960px] max-[960px]:w-full max-[960px]:bg-[#131313] max-[960px]:opacity-0 max-[960px]:transition-all max-[960px]:duration-500"
+        >
+          <!-- Home -->
+          <li
+            id="home-link"
+            class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
+          >
+            <a
+              href="/web-designing/"
+              class="flex h-[50%] text-[1.4rem] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Home
+            </a>
+          </li>
+
+          <!-- About -->
+          <li
+            id="about-link"
+            class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/about/"
+              class="flex text-[1.4rem] h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
+            >
+              About
+            </a>
+          </li>
+
+          <!-- Tech -->
+          <li
+            id="tech-link"
+            class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
+          >
+            <a
+              href="/web-designing/tech/"
+              class="flex text-[1.4rem] h-[50%] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Tech
+            </a>
+          </li>
+
+          <!-- Contact -->
+          <li
+            id="contact-link"
+            class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
+          >
+            <a
+              href="/web-designing/contact/"
+              class="flex text-[1.4rem] h-[50%] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
+            >
+              Contact
+            </a>
+          </li>
+
+          <!-- Signup -->
+          <li
+            id="signup-link"
+            class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
+          >
+            <a
+              href="/web-designing/signup/"
+              class="flex text-[1.4rem] h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
+            >
+              SignUp
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <main class="bg-[#141414]">
+      <section
+        class="mx-auto grid bg-top h-[100vh] w-full max-w-[1300px] grid-cols-2 items-center bg-[#141414] bg-cover bg-fixed bg-center bg-no-repeat px-[50px] max-[768px]:grid-cols-1 max-[768px]:h-[80vh] max-[768px]:mb-4 max-[767px]:bg-scroll"
+        style="
+          background-image:
+            linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.685) 0%,
+              rgba(17, 17, 17, 0.685) 100%
+            ),
+            url(&quot;./images/gaming-war.jpg&quot;);
+        "
+      >
+        <!-- Hero content -->
+        <div
+          class="relative z-10 w-full max-w-[700px] text-white max-[768px]:mb-8 max-[768px]:text-center"
+        >
+          <h1
+            class="gradient-title text-[4rem] font-bold leading-tight max-[768px]:mt-8 max-[768px]:text-[2.5rem] max-[480px]:mt-12 max-[480px]:text-[2rem]"
+          >
+            Gaming Era
+          </h1>
+
+          <h2
+            class="gradient-subtitle text-[4rem] font-bold leading-tight max-[768px]:text-[3rem] max-[480px]:text-[2rem]"
+          >
+            Are you ready?
+          </h2>
+
+          <p
+            class="mt-4 text-[2rem] font-bold text-white max-[768px]:mt-4 max-[768px]:text-[1.5rem] max-[480px]:mt-8"
+          >
+            How pro you are?
+          </p>
+
+          <!-- Button -->
+          <a
+            href="/web-designing/signup/"
+            class="main-button mt-8 inline-block rounded bg-gradient-to-t from-[#f77062] to-[#fe5199] px-8 py-[14px] text-base text-white no-underline transition-all duration-[350ms] max-[480px]:my-10 max-[480px]:px-9 max-[480px]:py-3"
+          >
+            <span>Get Started</span>
+          </a>
+        </div>
+
+        <!-- Image -->
+        <div class="text-center">
+          <img
+            src="images/gaming-war.jpg"
+            alt="Gaming"
+            class="h-1/2 w-full [clip-path:circle(34%_at_50%_50%)] max-[768px]:[clip-path:circle(34%_at_50%_50%)]"
+          />
+        </div>
+      </section>
+
+      <!-- ================= SERVICES TITLE ================= -->
+
+      <h1
+        class="gradient-services m-[0.9rem] text-center text-[2rem] max-[768px]:text-[1.5rem] max-[480px]:text-[1.2rem]"
+      >
+        See what the hype is about
+      </h1>
+
+      <!-- ================= SERVICES ================= -->
+
+      <section
+        class="mx-auto flex min-h-screen max-w-[1300px] flex-col items-center bg-[#141414] bg-cover bg-bottom bg-fixed bg-no-repeat py-10 max-[767px]:bg-scroll max-[480px]:h-auto"
+        style="
+          background-image:
+            linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.685) 0%,
+              rgba(44, 43, 43, 0.685) 100%
+            ),
+            url(&quot;./images/x-game.jpg&quot;);
+        "
+      >
+        <div class="flex flex-wrap justify-center">
+          <!-- CARD 1 -->
+          <div
+            class="group relative m-4 h-[26rem] w-[26rem] cursor-pointer rounded bg-cover text-white transition-all duration-700 hover:scale-105 hover:shadow-[4px_4px_8px_#ff0844] max-[480px]:w-[18rem]"
+            style="
+              background-image:
+                linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0) 0%,
+                  rgba(17, 17, 17, 0.6) 100%
+                ),
+                url(&quot;./images/p1.png&quot;);
+            "
+          >
+            <h2 class="absolute left-[1.875rem] top-[15rem] text-2xl font-bold">
+              Experience Bliss
+            </h2>
+
+            <p class="absolute left-8 top-[18rem]">
+              High Performance Gaming Zone
+            </p>
+
+            <a
+              href="/web-designing/tech/"
+              class="absolute left-[1.8rem] top-[20.9rem] rounded bg-[#f77062] px-5 py-[10px] text-base text-white no-underline transition-all duration-[350ms] hover:bg-[#4837ff]"
+            >
+              Start your own Game
+            </a>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="group relative m-4 h-[26rem] w-[26rem] cursor-pointer rounded bg-cover text-white transition-all duration-700 hover:scale-105 hover:shadow-[4px_4px_8px_#ff0844] max-[480px]:w-[18rem]"
+            style="
+              background-image:
+                linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0) 0%,
+                  rgba(17, 17, 17, 0.6) 100%
+                ),
+                url(&quot;./images/p2.png&quot;);
+            "
+          >
+            <h2 class="absolute left-[1.875rem] top-[15rem] text-2xl font-bold">
+              Are you dare to?
+            </h2>
+
+            <p class="absolute left-8 top-[18rem]">Knock Out!!!</p>
+
+            <a
+              href="/web-designing/tech/"
+              class="absolute left-[1.8rem] top-[20.9rem] rounded bg-[#f77062] px-5 py-[10px] text-base text-white no-underline transition-all duration-[350ms] hover:bg-[#4837ff]"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer
+      class="flex flex-col items-center justify-center bg-[#141414] px-0 pb-4 pt-20"
+    >
+      <div class="w-full max-w-[1000px]">
+        <!-- Footer Links -->
+        <div
+          class="grid grid-cols-4 border-y border-gray-600 max-[820px]:grid-cols-4 max-[820px]:gap-4 max-[480px]:grid-cols-2"
+        >
+          <!-- About -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">About Us</h2>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              How it works
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Career
+            </a>
+
+            <a
+              href="#about"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Our Team
+            </a>
+          </div>
+
+          <!-- Contact -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Contact Us</h2>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Contact
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Support
+            </a>
+
+            <a
+              href="#contact"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Terms of services
+            </a>
+          </div>
+
+          <!-- Videos -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Videos</h2>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Submit
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Agency
+            </a>
+
+            <a
+              href="#signup"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Influencer
+            </a>
+          </div>
+
+          <!-- Social -->
+          <div class="m-4 flex flex-col items-start text-left">
+            <h2 class="mb-4 text-white">Social Media</h2>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="#index"
+              class="mb-2 text-white no-underline hover:text-[#e9e9e9]"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div
+          class="mx-auto mt-10 flex w-[90%] max-w-[767px] items-center justify-between max-[820px]:flex-col max-[820px]:gap-8"
+        >
+          <!-- Logo -->
+          <a
+            href="#"
+            id="footer__logo"
+            class="flex items-center text-[2rem] text-white no-underline"
+          >
+            <i class="fab fa-google">
+              <i class="fab fa-etsy"></i>
+            </i>
+          </a>
+
+          <!-- Copyright -->
+          <p class="text-white max-[820px]:mb-8">
+            &copy; 2026. All rights reserved
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex w-[240px] items-center justify-evenly">
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-facebook"></i>
+            </a>
+
+            <a
+              href="#"
+              target="_blank"
+              class="text-2xl text-white hover:text-[#f77062]"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <!-- Tailwind CSS -->
+    <script>
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector("#nav-act");
+
+      /*
+      Mobile menu
+    */
+      menu.addEventListener("click", function () {
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("mobile-menu-open");
+      });
+
+      /*
+      Active navigation link
+    */
+      function setActiveLink() {
+        const links = document.querySelectorAll("#nav-act li");
+
+        links.forEach((link) => {
+          link.classList.remove(
+            "border-t",
+            "border-b",
+            "border-[#4837ff]",
+            "border-b-[#f77062]",
+            "rounded-full",
+          );
+
+          const anchor = link.querySelector("a");
+
+          if (!anchor) return;
+
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
+
+          if (
+            href === currentLocation ||
+            (href === "index.html" && currentLocation === "/")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "index.html" && window.location.hash === "")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+        });
+      }
+
+      window.addEventListener("hashchange", setActiveLink);
+
+      window.addEventListener("load", setActiveLink);
+    </script>
+  </body>
+</html>

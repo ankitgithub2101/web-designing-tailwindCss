@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #141414;
+  font-family: "Kumbh Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.gradient-logo {
+  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient text */
+.gradient-red {
+  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-blue {
+  background: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-title {
+  background: linear-gradient(
+    to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Services cards */
+.service-card {
+  transition:
+    transform 0.8s ease,
+    box-shadow 0.8s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 8px #ff0844;
+}
+
+/* Button hover animation */
+.gradient-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: #4837ff;
+  transition: width 0.35s ease;
+  z-index: 0;
+}
+
+.gradient-button:hover::after {
+  width: 100%;
+}
+
+.gradient-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Active navbar */
+.actives {
+  border-top: 1px solid #4837ff;
+  border-bottom: 1px solid #f77062;
+  border-radius: 50px;
+}
+
+/* Mobile menu */
+#navMenu {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+/* Modal */
+#gameModal {
+  transition: opacity 0.3s ease;
+}
+
+#carouselImage {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Active navigation */
+.active-nav {
+  border-top: 1px solid #4837ff;
+  border-bottom: 1px solid #f77062;
+  border-radius: 50px;
+}
+
+/* Mobile scrollbar */
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
