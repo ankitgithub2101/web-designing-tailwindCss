@@ -582,6 +582,74 @@
 
       window.addEventListener("load", setActiveLink);
 
+      /* ================= FLIP CARD ================= */
+
+      function flip() {
+        document.getElementById("card").classList.toggle("flipped");
+      }
+
+      /* ================= SIGNUP VALIDATION ================= */
+
+      function validateFirstName() {
+        const value = document.forms["signUp"]["first_name"].value.trim();
+
+        document.getElementById("firstNameError").textContent =
+          value === "" ? "First name is required." : "";
+      }
+
+      function validateLastName() {
+        const value = document.forms["signUp"]["last_name"].value.trim();
+
+        document.getElementById("lastNameError").textContent =
+          value === "" ? "Last name is required." : "";
+      }
+
+      function validateUsername() {
+        const value = document.forms["signUp"]["username"].value.trim();
+
+        document.getElementById("usernameError").textContent =
+          value === "" ? "Username is required." : "";
+      }
+
+      function validateEmail() {
+        const value = document.forms["signUp"]["email"].value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        document.getElementById("emailError").textContent = emailPattern.test(
+          value,
+        )
+          ? ""
+          : "Enter a valid email address.";
+      }
+
+      function validatePassword() {
+        const value = document.forms["signUp"]["password"].value;
+
+        document.getElementById("passwordError").textContent =
+          value.length >= 6 ? "" : "Password must be at least 6 characters.";
+      }
+
+      function validateForm() {
+        validateFirstName();
+        validateLastName();
+        validateUsername();
+        validateEmail();
+        validatePassword();
+
+        const errors = document.querySelectorAll("#signUp .error");
+
+        for (const error of errors) {
+          if (error.textContent !== "") {
+            return false;
+          }
+        }
+
+        alert("✅ Signup successful!");
+
+        return true;
+      }
+
       /* ================= LOGIN VALIDATION ================= */
 
       function validateLoginUsername() {
