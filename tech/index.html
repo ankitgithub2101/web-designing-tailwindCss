@@ -154,18 +154,16 @@
         class="relative flex w-full items-center overflow-hidden bg-[#141414] px-6 md:h-[100vh] md:px-[50px]"
       >
         <!-- Background Video -->
-      <video
-  id="bgVideo"
-  autoplay
-  muted
-  loop
-  playsinline
-  webkit-playsinline
-  preload="auto"
-  class="absolute inset-0 z-0 h-full w-full object-cover object-center"
->
-  <source src="../video/tekken2.mov" type="video/quicktime" />
-</video>
+        <video
+          id="bgVideo"
+          autoplay
+          muted
+          loop
+          playsinline
+          class="absolute inset-0 z-0 h-full w-full object-cover object-center"
+        >
+          Your browser does not support the video tag.
+        </video>
 
         <!-- Overlay -->
         <div
@@ -795,43 +793,62 @@
      BACKGROUND VIDEO
   ========================================================= */
 
- document.addEventListener("DOMContentLoaded", () => {
-    const video = document.getElementById("bgVideo");
+  window.addEventListener("load", function () {
 
-    if (!video) return;
+    const loadVideo = () => {
 
-    video.muted = true;
-    video.defaultMuted = true;
-    video.playsInline = true;
+      const video =
+        document.getElementById("bgVideo");
 
-    const playVideo = () => {
-      const promise = video.play();
+      if (!video) return;
 
-      if (promise !== undefined) {
-        promise
-          .then(() => {
-            console.log("Background video started");
-          })
-          .catch((error) => {
-            console.log("Video autoplay failed:", error);
+      /*
+        Don't reload the video if it already has
+        a source.
+      */
+      if (!video.src) {
+
+        video.src =
+          "../video/tekken2.mov";
+
+        video.load();
+
+        const playPromise =
+          video.play();
+
+        if (
+          playPromise !== undefined
+        ) {
+          playPromise.catch(() => {
+            /*
+              Autoplay may be blocked by
+              the browser. Video is muted,
+              so normally it should work.
+            */
           });
+        }
       }
     };
 
-    /* Try immediately */
-    playVideo();
 
-    /* Try again when the browser can play the video */
-    video.addEventListener("canplay", playVideo, {
-      once: true,
-    });
+    /*
+      Load video when browser is idle
+    */
+    if (
+      "requestIdleCallback" in window
+    ) {
 
-    /* Try again after the page becomes visible */
-    document.addEventListener("visibilitychange", () => {
-      if (!document.hidden && video.paused) {
-        playVideo();
-      }
-    });
+      requestIdleCallback(
+        loadVideo
+      );
+
+    } else {
+
+      setTimeout(
+        loadVideo,
+        1000
+      );
+    }
   });
 </script>
 
