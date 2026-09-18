@@ -82,6 +82,13 @@ body {
   overflow: hidden;
 }
 
+.gradient-subtitle {
+  background-image: linear-gradient(to top, #b721ff 0%, #21d4fd 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .gradient-button::after {
   content: "";
   position: absolute;
