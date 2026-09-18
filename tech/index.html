@@ -154,18 +154,18 @@
         class="relative flex w-full items-center overflow-hidden bg-[#141414] px-6 md:h-[100vh] md:px-[50px]"
       >
         <!-- Background Video -->
-       <video
-        id="bgVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        webkit-playsinline
-        preload="metadata"
-        class="absolute inset-0 z-0 h-full w-full object-cover object-center"
-      >
-        <source src="../video/tekken2.mov" type="video/quicktime" />
-      </video>
+      <video
+  id="bgVideo"
+  autoplay
+  muted
+  loop
+  playsinline
+  webkit-playsinline
+  preload="auto"
+  class="absolute inset-0 z-0 h-full w-full object-cover object-center"
+>
+  <source src="../video/tekken2.mov" type="video/quicktime" />
+</video>
 
         <!-- Overlay -->
         <div
@@ -795,20 +795,44 @@
      BACKGROUND VIDEO
   ========================================================= */
 
-  window.addEventListener("load", () => {
-  const video = document.getElementById("bgVideo");
+ document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("bgVideo");
 
-  if (!video) return;
+    if (!video) return;
 
-  video.muted = true;
-  video.setAttribute("muted", "");
-  video.setAttribute("playsinline", "");
-  video.setAttribute("webkit-playsinline", "");
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
 
-  video.play().catch(() => {
-    // Autoplay was blocked.
+    const playVideo = () => {
+      const promise = video.play();
+
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            console.log("Background video started");
+          })
+          .catch((error) => {
+            console.log("Video autoplay failed:", error);
+          });
+      }
+    };
+
+    /* Try immediately */
+    playVideo();
+
+    /* Try again when the browser can play the video */
+    video.addEventListener("canplay", playVideo, {
+      once: true,
+    });
+
+    /* Try again after the page becomes visible */
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && video.paused) {
+        playVideo();
+      }
+    });
   });
-});
 </script>
 
   </body>
