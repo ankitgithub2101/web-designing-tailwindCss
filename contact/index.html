@@ -44,7 +44,7 @@
       >
         <!-- Logo -->
         <a
-          href="/web-designing/"
+          href="/web-designing-tailwindCss/"
           id="navbar__logo"
           class="gradient-logo flex cursor-pointer items-center text-[2rem] no-underline max-[960px]:pl-[25px]"
         >
@@ -82,7 +82,7 @@
             class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
           >
             <a
-              href="/web-designing/"
+              href="/web-designing-tailwindCss/"
               class="flex h-[50%] text-[1.4rem] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
             >
               Home
@@ -95,7 +95,7 @@
             class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
           >
             <a
-              href="/web-designing/about/"
+              href="/web-designing-tailwindCss/about/"
               class="flex text-[1.4rem] h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
             >
               About
@@ -108,7 +108,7 @@
             class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
           >
             <a
-              href="/web-designing/tech/"
+              href="/web-designing-tailwindCss/tech/"
               class="flex text-[1.4rem] h-[50%] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
             >
               Tech
@@ -121,7 +121,7 @@
             class="flex items-center max-[960px]:block max-[960px]:h-[70px] max-[960px]:w-1/2 max-[960px]:mx-auto"
           >
             <a
-              href="/web-designing/contact/"
+              href="/web-designing-tailwindCss/contact/"
               class="flex text-[1.4rem] h-[50%] items-center justify-center px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:table max-[960px]:h-auto max-[960px]:w-full max-[960px]:p-4 max-[960px]:text-[1.6rem]"
             >
               Contact
@@ -134,7 +134,7 @@
             class="flex w-full items-center justify-center max-[960px]:mx-auto max-[960px]:w-1/2"
           >
             <a
-              href="/web-designing/signup/"
+              href="/web-designing-tailwindCss/signup/"
               class="flex text-[1.4rem] h-full w-full items-center justify-center rounded px-[15px] py-[10px] text-white no-underline transition-all duration-300 hover:text-[#f77062] max-[960px]:h-[70px] max-[960px]:w-4/5 max-[960px]:text-[1.6rem]"
             >
               SignUp
@@ -327,50 +327,74 @@
 
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-      const menu = document.getElementById("mobile-menu");
-      const menuLinks = document.getElementById("nav-act");
+      /* =========================================================
+     MOBILE MENU
+  ========================================================= */
 
-      menu.addEventListener("click", () => {
-        const isOpen = menuLinks.classList.contains("flex");
+      const menu = document.querySelector("#mobile-menu");
+      const menuLinks = document.querySelector("#nav-act");
 
-        if (isOpen) {
-          menuLinks.classList.remove("flex");
-          menuLinks.classList.add("hidden");
-          menu.setAttribute("aria-expanded", "false");
-        } else {
-          menuLinks.classList.remove("hidden");
-          menuLinks.classList.add("flex");
-          menu.setAttribute("aria-expanded", "true");
-        }
-
-        const bars = menu.querySelectorAll(".bar");
-
-        bars[0].classList.toggle("translate-y-2");
-        bars[0].classList.toggle("rotate-45");
-
-        bars[1].classList.toggle("opacity-0");
-
-        bars[2].classList.toggle("-translate-y-2");
-        bars[2].classList.toggle("-rotate-45");
+      /*
+      Mobile menu
+    */
+      menu.addEventListener("click", function () {
+        menu.classList.toggle("is-active");
+        menuLinks.classList.toggle("mobile-menu-open");
       });
 
-      // Close mobile menu when clicking a navigation link
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", () => {
-          if (window.innerWidth < 768) {
-            menuLinks.classList.remove("flex");
-            menuLinks.classList.add("hidden");
+      /*
+      Active navigation link
+    */
+      function setActiveLink() {
+        const links = document.querySelectorAll("#nav-act li");
 
-            menu.setAttribute("aria-expanded", "false");
+        links.forEach((link) => {
+          link.classList.remove(
+            "border-t",
+            "border-b",
+            "border-[#4837ff]",
+            "border-b-[#f77062]",
+            "rounded-full",
+          );
 
-            const bars = menu.querySelectorAll(".bar");
+          const anchor = link.querySelector("a");
 
-            bars[0].classList.remove("translate-y-2", "rotate-45");
-            bars[1].classList.remove("opacity-0");
-            bars[2].classList.remove("-translate-y-2", "-rotate-45");
+          if (!anchor) return;
+
+          const href = anchor.getAttribute("href");
+          const currentLocation = window.location.pathname;
+
+          if (
+            href === currentLocation ||
+            (href === "index.html" && currentLocation === "/")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
+          }
+
+          if (
+            window.location.hash === href ||
+            (href === "index.html" && window.location.hash === "")
+          ) {
+            link.classList.add(
+              "border-t",
+              "border-b",
+              "border-[#4837ff]",
+              "border-b-[#f77062]",
+              "rounded-full",
+            );
           }
         });
-      });
+      }
+
+      window.addEventListener("hashchange", setActiveLink);
+
+      window.addEventListener("load", setActiveLink);
     </script>
   </body>
 </html>
