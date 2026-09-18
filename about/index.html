@@ -473,27 +473,12 @@
       const menu = document.querySelector("#mobile-menu");
       const menuLinks = document.querySelector("#nav-act");
 
+      /*
+      Mobile menu
+    */
       menu.addEventListener("click", function () {
-        menuLinks.classList.toggle("hidden");
-        menuLinks.classList.toggle("flex");
-
         menu.classList.toggle("is-active");
-
-        const bars = menu.querySelectorAll(".bar");
-
-        if (menu.classList.contains("is-active")) {
-          bars[0].classList.add("translate-y-[8px]", "rotate-45");
-
-          bars[1].classList.add("opacity-0");
-
-          bars[2].classList.add("-translate-y-[8px]", "-rotate-45");
-        } else {
-          bars[0].classList.remove("translate-y-[8px]", "rotate-45");
-
-          bars[1].classList.remove("opacity-0");
-
-          bars[2].classList.remove("-translate-y-[8px]", "-rotate-45");
-        }
+        menuLinks.classList.toggle("mobile-menu-open");
       });
     </script>
   </body>
