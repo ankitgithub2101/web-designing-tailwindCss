@@ -15,6 +15,10 @@ body {
   overflow-y: scroll;
 }
 
+.nav-act {
+  padding: 20px;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
